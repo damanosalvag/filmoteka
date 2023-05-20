@@ -2,21 +2,21 @@
   "name": "filmoteka",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://github.com/DPHDev/filmoteka-gp1",
+  "homepage": "https://damanosalvag.github.io/filmoteka",
   "type": "module",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /filmoteka-gp1/"
+    "build": "parcel build src/*.html --public-url /filmoteka/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DPHDev/filmoteka-gp1.git"
+    "url": "git+https://github.com/damanosalvag/filmoteka-gp1.git"
   },
   "keywords": [],
   "author": "Dairo Manosalva <damanosalvag@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DPHDev/filmoteka-gp1/issues"
+    "url": "https://github.com/damanosalvag/filmoteka/issues"
   },
   "dependencies": {
     "axios": "^1.4.0",
