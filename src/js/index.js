@@ -37,7 +37,7 @@ const {
   openModalFooter,
   closeModalFooter,
   modalFooter,
-  scrollTopBtn,
+  scrollTopBtn
 } = varDOM;
 
 const page = 1;
@@ -140,6 +140,11 @@ async function renderMoviesInit(page) {
       }
     });
   });
+  //Close modal btn
+
+modalCloseBtn.addEventListener('click', () => {
+  modalContainer.style.display = 'none';
+});
 }
 
 renderMoviesInit(page);
@@ -214,9 +219,9 @@ modalWatchedBtn.addEventListener('click', e => {
 openModalFooter.addEventListener('click', () => {
   modalFooter.style.display = 'block';
 });
-closeModalFooter.addEventListener('click', () => {
-  modalFooter.style.display = 'none';
-});
+// closeModalFooter.addEventListener('click', () => {
+//   modalFooter.style.display = 'none';
+// });
 
 // Scroll button to top
 window.addEventListener('scroll', scrollTop);

@@ -64,21 +64,21 @@
 }
 
 .back-to-top {
-  display: none;
   position: fixed;
-  right: 3%;
-  bottom: 10%;
+  z-index: 2;
+  bottom: 60px;
+  right: 60px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
   cursor: pointer;
-
-  svg {
-    opacity: 0.7;
-    fill: getColor('accent');
+  svg{
+    fill: #FF6B01;
   }
-
-  &:hover svg {
-    opacity: 1;
-    transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+}
+.show {
+  opacity: 1;
+  pointer-events: auto;   
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {

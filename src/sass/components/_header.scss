@@ -122,6 +122,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    &:focus-within {
+            border-bottom: 1px solid #ff001b;
+            box-shadow: 0 0 15px orangered;
+            border-radius: 6px;
+        }
     input {
         width: 100%;
         border: none;
@@ -130,11 +135,6 @@
         &:focus {
             outline: none;
         }
-        &:focus-within {
-            border-bottom: 1px solid #ff001b;
-            box-shadow: 0 0 15px orangered;
-            border-radius: 6px;
-          }
     }
 }
 .scoop-icon-btn {
@@ -145,11 +145,7 @@
         fill: transparent;
         stroke: #818181;
     }
-    &:focus, &:hover {
-        border-bottom: 1px solid #ff001b;
-        box-shadow: 0 0 15px orangered;
-        border-radius: 6px;
-      }
+
 }
 
 
