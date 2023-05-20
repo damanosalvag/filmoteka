@@ -15,7 +15,7 @@ import {
   removeQueue,
   removeWatched
 } from './localStorage';
-import { theme } from './theme-dark';
+import { saveTheme, onTheme } from './theme-dark';
 
 const {
   movieName,
@@ -235,3 +235,7 @@ scrollTopBtn.addEventListener('click', () => {
 modalCloseBtn.addEventListener('click', () => {
   modalContainer.style.display = 'none';
 });
+
+// Mode dark
+varDOM.checked.addEventListener('change', saveTheme);
+

@@ -31,5 +31,9 @@ export const varDOM = {
   scrollTopBtn: document.querySelector('.back-to-top'),
   openModalFooter: document.getElementById('data-modal-open'),
   closeModalFooter: document.getElementById('data-modal-close'),
-  modalFooter: document.getElementById('data-modal')
+  modalFooter: document.getElementById('data-modal'),
+  btnThemeHeader : document.querySelector('#switch-label'),
+  bodyTheme : document.querySelector('body'),
+  checked : document.querySelector('.switch-button__checkbox')
+
 };
