@@ -51,7 +51,7 @@ export async function renderPost(posts, page, listGenres) {
                         <p class="info-item">
                             | ${date_year}
                         </p>
-                        <p class="info-item">
+                        <p class="info-item addBorder">
                             ${vote_average.toFixed(1)}
                         </p>
                     </div>
