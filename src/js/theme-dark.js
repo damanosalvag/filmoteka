@@ -12,8 +12,7 @@ export function saveTheme() {
     nameTitle.forEach(figure => figure.classList.add('dm-card-movie-title'));
   } else {
     varDOM.bodyTheme.classList.remove('body-theme');
-    nameTitle.classList.remove('dm-card-movie-title');
-
+    nameTitle.forEach(figure => figure.classList.remove('dm-card-movie-title'));
   }
 }
 

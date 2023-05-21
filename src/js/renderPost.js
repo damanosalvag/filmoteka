@@ -21,22 +21,6 @@ export async function renderPost(posts, page, listGenres) {
             const date_year = release_date != undefined ? release_date.slice(0, 4) : '2023';
 
             const poster = poster_path === null ? varDOM.defaultPoster : `https://image.tmdb.org/t/p/w500${poster_path}`;
-            let genr = "";
-            let cont = 0;
-            for (const genre of genres) {
-                genr += genre;
-                cont += 1;
-                if(cont == 3 || cont == genres.length){
-                    break;
-                }
-                genr += ", ";
-            }
-            let year = [];            
-            year[0] = undefined;
-            
-            if(release_date != undefined){
-                year = release_date.split('-')
-            }
             return `
             <figure class="movie-card" id="movie-detail">
                 <a class="poster-large" data-id="${id}" href="#">
