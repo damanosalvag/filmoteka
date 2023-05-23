@@ -20,25 +20,6 @@ export const getAPI = {
                 };
             });
     },
-
-    genres: function () {
-    return axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${this.KEY_API}&language=en-US`)
-        .then((response) => {
-            return response.data.genres;
-        })
-        .catch(error => {
-            switch (true) {
-                case error.response.status === 401:
-                    console.log(error.status_message);
-                    break;
-                case error.response.status === 404:
-                    console.log(error.status_message);
-                    break;
-                default:
-                    console.log(`Something went wrong!`);
-            };
-        });
-    },
     trendMovies: function (page) {
     return axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=${this.KEY_API}&language=en-US&page=${page}`)
         .then((response) => {

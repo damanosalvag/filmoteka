@@ -1,45 +1,36 @@
 import { varDOM } from "./var-selector-dom";
 import { getAPI } from "./request-api";
+import { validations } from "./f-array";
 
 
 const {
     modalContainer, modalImgPoster, modalCloseBtn,
     modalTitle, modalInfoValues, modalDescMovie,
-    modalWatchedBtn, modalQueueBtn, defaultPoster
+    modalWatchedBtn, modalQueueBtn
 } = varDOM;
 
 export async function detailsMovieValues(id_movie) {
     const movieInfoObj = await getAPI.detailMovie(id_movie);
-    const { backdrop_path, poster_path, original_title, title, vote_average, vote_count, popularity, genres, overview, id } = movieInfoObj.data;
     
-    // Destructuration object genres to array of names
-    let desGenres = '';
-    const gen = movieInfoObj.data.genres;
-        gen.forEach(element => {
-            desGenres += element.name+' | ';
-    });
+    const data = validations(movieInfoObj.data)
+
+    const { id_, title_, vote_average_, genres, poster_, year, original_title_, vote_count_, overview_, popularity_ } = data;
 
     //image poster
-    if (poster_path != null) {
-        modalImgPoster.src = `https://image.tmdb.org/t/p/w500${poster_path}`;
-    } else if(backdrop_path != null){
-        modalImgPoster.src = `https://image.tmdb.org/t/p/w500${backdrop_path}`;
-    } else {
-        modalImgPoster.src = defaultPoster;
-    };
+    modalImgPoster.src = poster_;
     // title movie
-    modalTitle.textContent = title;
-    modalWatchedBtn.value = id;
-    modalQueueBtn.value = id;    
+    modalTitle.textContent = title_;
+    modalWatchedBtn.value = id_;
+    modalQueueBtn.value = id_;    
     // film values
     const markup = `
-        <li><span class="film-info_vote">${vote_average.toFixed(1)}</span> / <span class="film-info_count">${vote_count}</span></li>
-        <li>${popularity}</li>
-        <li>${original_title}</li>
-        <li>${desGenres}</li>`;
+        <li><span class="film-info_vote">${vote_average_}</span> / <span class="film-info_count">${vote_count_}</span></li>
+        <li>${popularity_}</li>
+        <li>${original_title_}</li>
+        <li>${genres.all}</li>`;
     modalInfoValues.innerHTML = markup;
     // Description
-    modalDescMovie.textContent = overview;
+    modalDescMovie.textContent = overview_;
     
 }
 

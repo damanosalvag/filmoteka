@@ -4,12 +4,6 @@ export const varDOM = {
   filmsRender: document.getElementById('films'),
   defaultPoster:
     'https://firebasestorage.googleapis.com/v0/b/filmoteca-c42e2.appspot.com/o/images%2Fdefault-opt.jpg?alt=media&token=8d34f416-268a-4f03-a309-841d27ec0d59',
-  genresList: function (ids_movie, movieListGenres) {
-    const genres = movieListGenres
-      .filter(movie => ids_movie.includes(movie.id))
-      .map(genre => genre.name);
-    return genres;
-  },
   modalContainer: document.querySelector('#myModal'),
   modalP: document.querySelector('p'),
   modalCloseBtn: document.querySelector('.close'),
@@ -34,6 +28,9 @@ export const varDOM = {
   modalFooter: document.getElementById('data-modal'),
   btnThemeHeader : document.querySelector('#switch-label'),
   bodyTheme : document.querySelector('body'),
-  checked : document.querySelector('.switch-button__checkbox')
+  checked: document.querySelector('.switch-button__checkbox'),
+  paginationContainer: document.querySelector('.pg-container'),
+  pagAdv: document.getElementById('pg-advance-btn'),
+  pagBack: document.getElementById('pg-back-btn')
 
 };
