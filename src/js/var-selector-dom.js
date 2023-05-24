@@ -13,6 +13,10 @@ export const varDOM = {
   modalDescMovie: document.querySelector('.description-text'),
   modalWatchedBtn: document.getElementById('watch-button'),
   modalQueueBtn: document.getElementById('queue-button'),
+  
+  addBtnContainer: document.getElementById('add-btn-container'),
+  watchedStorage: localStorage.getItem('watched'),
+  queueStorage: localStorage.getItem('queue'),
 
   buttonWatchet: document.querySelector('.button__watchet'),
   buttonQueue: document.querySelector('.button__queue'),

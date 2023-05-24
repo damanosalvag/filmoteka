@@ -1,21 +1,11 @@
 import { varDOM } from './var-selector-dom';
 import { renderPost, printCard, pageNow, total_pgs } from './renderPost';
-import { detailsMovieValues } from './modal-movie-details';
+import { detailsMovieValues, addWyQ } from './modal-movie-details';
 import { paginationButtons, renderPerPage, renderPerPagination } from './pagination';
 import { scrollTop } from './scroll-top';
-import {
-  setQueue,
-  setWatched,
-  getQueue,
-  getWatched,
-  getGenre,
-  deletechildrens,
-  searchId,
-  removeQueue,
-  removeWatched
-} from './localStorage';
+import { addIdStorage, testLocalStorage } from './localStorage';
 import { saveTheme, onTheme } from './theme-dark';
-import { renderMoviesTrend, renderMoviesSearch } from './f-array';
+import { renderMoviesTrend, renderMoviesSearch, id_global } from './f-array';
 
 const {
   movieName,
@@ -38,7 +28,8 @@ const {
   closeModalFooter,
   modalFooter,
   scrollTopBtn,
-  paginationContainer
+  paginationContainer,
+  addBtnContainer
 } = varDOM;
 
 const currentPage = 1;
@@ -56,8 +47,11 @@ movieName.addEventListener('keydown', event => {
     onSearchBtn.click();
   }
 });
-
+function remove() {
+  addBtnContainer.removeEventListener('click', addWyQ, true)
+}
 modalCloseBtn.addEventListener('click', () => {
+  remove();
   modalContainer.style.display = 'none';
 });
 
@@ -67,23 +61,15 @@ document.getElementById('pg-controler').addEventListener('click', event => {
 
 document.addEventListener('DOMContentLoaded', function() {
   renderMoviesTrend(currentPage);
+  testLocalStorage();
 });
 
 
-
-
-// MEMBERS MODAL/FOOTER MODAL
-
-
-
 // Scroll button to top
-// window.addEventListener('scroll', scrollTop);
-
-// scrollTopBtn.addEventListener('click', () => {
-//   window.scrollTo({ top: 0, behavior: 'smooth' });
-// });
-
-//Close modal btn
+window.addEventListener('scroll', scrollTop);
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 
 
 // Mode dark

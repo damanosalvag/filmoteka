@@ -3,7 +3,6 @@ import { varDOM } from "./var-selector-dom";
 import { getGenre } from "./localStorage";
 import { moviesArraytoRender, validations } from "./f-array";
 
-let count = 0;
 export let total_pgs, pageNow = 0;
 
 export async function renderPost(posts) {

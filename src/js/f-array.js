@@ -3,11 +3,13 @@ import { getAPI } from "./request-api";
 import { renderPost } from "./renderPost";
 import { detailsMovieValues } from './modal-movie-details';
 import { paginationButtons, renderPerPage } from "./pagination";
+import { validationIdStorage } from "./localStorage";
 
 const { modalContainer, movieName } = varDOM
 
 export let currentPage = 1;
 export let allPages = 0;
+export let id_global = 0;
 
 // Process function for array movies
 export async function moviesArraytoRender(arrayAPI) {
@@ -85,7 +87,10 @@ function modalListener () {
     const id_movie = movie.querySelector('a');
     movie.addEventListener('click', () => {
       modalContainer.style.display = 'block';
+      // Validation id storage beacuse active watched and queue buttons
+      validationIdStorage(id_movie.dataset.id);
       detailsMovieValues(id_movie.dataset.id);
+      id_global = id_movie.dataset.id;
     });
   });
 }
