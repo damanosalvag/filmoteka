@@ -147,7 +147,6 @@ modalCloseBtn.addEventListener('click', () => {
 });
 }
 
-renderMoviesInit(page);
 
 onSearchBtn.addEventListener('click', async () => {
   if (movieName.value != '') {
@@ -239,3 +238,7 @@ modalCloseBtn.addEventListener('click', () => {
 // Mode dark
 varDOM.checked.addEventListener('change', saveTheme);
 
+
+document.addEventListener('DOMContentLoaded', function() {
+  renderMoviesInit(page);
+});
