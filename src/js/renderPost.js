@@ -6,12 +6,13 @@ let count = 0;
 export let total_pgs, pageNow = 0;
 
 export async function renderPost(posts, page, listGenres) {
+    let test = '';
     try {
         const { page, results, total_pages, total_results } = posts.data;
         total_pgs = total_pages;
         pageNow = page;
         const arrayMovies = results.length > 9 ? results.slice(0, 9) : results;
-        const promises = arrayMovies.map(async ({ poster_path, id, title, genre_ids, release_date, vote_average }) => {
+        const promises = arrayMovies.map(async ({ poster_path=varDOM.defaultPoster, id, title='jhon doe', genre_ids, release_date = "2023", vote_average }) => {
             // Genres list charge
             const genres = await varDOM.genresList(genre_ids, listGenres).map((elemento) => {
                 return ' ' + elemento;
@@ -45,10 +46,11 @@ export async function renderPost(posts, page, listGenres) {
         });
         const markup = await Promise.all(promises);
         varDOM.filmsRender.innerHTML = markup.join(' ');
+        console.log(markup);
 
     }
-    catch {
-        return
+    catch (error){
+        console.log(error);
     }
 }
 
