@@ -131,11 +131,11 @@ async function renderMoviesInit(page) {
       detailsMovieValues(id_movie.dataset.id);
       modalWatchedBtn.textContent = "ADD TO WATCHED";
       modalQueueBtn.textContent = "ADD TO QUEUE";
-      if(searchId(id_movie.dataset.id, 'Watched') == true){
+      if(searchId(id_movie.dataset.id, 'watched') == true){
         modalWatchedBtn.textContent = "REMOVE FROM WHATCHED";  
-        console.log(searchId(id_movie.dataset.id, 'Watched'))      
+        console.log(searchId(id_movie.dataset.id, 'watched'))      
       }
-      if(searchId(id_movie.dataset.id, 'Queue') == true){
+      if(searchId(id_movie.dataset.id, 'queue') == true){
         modalQueueBtn.textContent = "REMOVE FROM QUEUE";
       }
     });

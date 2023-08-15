@@ -29,8 +29,8 @@ export async function detailsMovieValues(id_movie) {
     };
     // title movie
     modalTitle.textContent = title;
-    modalWatchedBtn.value = id;
-    modalQueueBtn.value = id;    
+    modalWatchedBtn.value = id.toString();
+    modalQueueBtn.value = id.toString();    
     // film values
     const markup = `
         <li><span class="film-info_vote">${vote_average.toFixed(1)}</span> / <span class="film-info_count">${vote_count}</span></li>
